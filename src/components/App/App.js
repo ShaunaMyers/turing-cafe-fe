@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { fetchReservations } from '../../apiCalls';
 import ResContainer from '../ResContainer/ResContainer';
+import ResForm from '../ResForm/ResForm';
 
 class App extends Component {
   constructor() {
@@ -14,7 +15,6 @@ class App extends Component {
   componentDidMount = () => {
     fetchReservations() 
       .then(data => this.setState({ reservations: data }))
-      // .then(data => console.log('data', data))
       .catch(() => console.log('Error loading movies'))
   }
 
@@ -25,6 +25,7 @@ class App extends Component {
         <div className='resy-form'>
 
         </div>
+        <ResForm />
         <ResContainer className='resy-container' reservations={this.state.reservations}/>
       </div>
     )
