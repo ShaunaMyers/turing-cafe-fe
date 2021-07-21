@@ -13,10 +13,10 @@ class ResForm extends Component {
     render() { 
         return ( 
             <Form>
-                <input onChange={handleAddName} type="text" placeholder="Your Name"/>
-                <input onChange={handleAddDate} type="text" placeholder="Date"/>/>
-                <input onChange={handleAddTime} type="text" placeholder="Time"/>/>
-                <input onChange={handleAddNumber} type="text" placeholder="Number of People in Group"/>/>
+                <input onChange={handleAddName} type="text" placeholder="Your Name" value={this.state.name}/>
+                <input onChange={handleAddDate} type="text" placeholder="Date" value={this.state.date}/>
+                <input onChange={handleAddTime} type="text" placeholder="Time" value={this.state.time}/>
+                <input onChange={handleAddNumber} type="text" placeholder="Number of People in Group" value={this.state.number}/>
                 <button>Make Reservation</button>
             </Form>
          );
