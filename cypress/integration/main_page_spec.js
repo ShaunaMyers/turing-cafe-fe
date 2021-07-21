@@ -56,12 +56,20 @@ describe('Main Reservation Page', () => {
         .contains('Make Reservation')
     })
 
-    it.only('Should be able to type a name in an input field', () => {
+    it('Should be able to type a name in an input field', () => {
         cy
           .get('form')
           .get('input').first()
           .type('Kev Smith')
           .should('have.value', 'Kev Smith')
+      })
+
+      it('Should be able to type a date in an input field', () => {
+        cy
+          .get('form')
+          .get('input').first().next()
+          .type('07/29')
+          .should('have.value', '07/29')
       })
     
 })
