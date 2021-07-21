@@ -8,6 +8,7 @@ class App extends Component {
       reservations: []
     }
   }
+
   render() {
     return (
       <div className="App">
