@@ -10,6 +10,11 @@ class ResForm extends Component {
             number: ''
          }
     }
+
+    handleAddName = (e) => {
+        this.setState({ name: e.target.value })
+    }
+
     render() { 
         return ( 
             <Form>
