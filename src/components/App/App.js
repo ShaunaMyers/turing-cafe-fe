@@ -18,6 +18,10 @@ class App extends Component {
       .catch(() => console.log('Error loading movies'))
   }
 
+  handleAddReservation = (reservation) => {
+    this.setState({ reservations: [...this.state.reservations, reservation ]})
+  }
+
   render() {
     return (
       <div className="App">
@@ -25,7 +29,7 @@ class App extends Component {
         <div className='resy-form'>
 
         </div>
-        <ResForm />
+        <ResForm handleAddReservation={this.handleAddReservation}/>
         <ResContainer className='resy-container' reservations={this.state.reservations}/>
       </div>
     )

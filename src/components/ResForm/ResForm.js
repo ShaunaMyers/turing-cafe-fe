@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 class ResForm extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = { 
             name: '',
             date: '',
@@ -27,14 +27,19 @@ class ResForm extends Component {
         this.setState({ number: e.target.value })
     }
 
+    onAddReservation = () => {
+        const { name, date, time, number } = this.state;
+        this.props.handleAddReservation({ id: Math.random(), name: name, date: date, time: time, number: number })
+    }
+
     render() { 
         return ( 
-            <form>
+            <form className="resForm">
                 <input onChange={this.handleAddName} type="text" placeholder="Your Name" value={this.state.name}/>
                 <input onChange={this.handleAddDate} type="text" placeholder="Date" value={this.state.date}/>
                 <input onChange={this.handleAddTime} type="text" placeholder="Time" value={this.state.time}/>
                 <input onChange={this.handleAddNumber} type="text" placeholder="Number of People in Group" value={this.state.number}/>
-                <button>Make Reservation</button>
+                <button onClick={this.onAddReservation}>Make Reservation</button>
             </form>
          );
     }
