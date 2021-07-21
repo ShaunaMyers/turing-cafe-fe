@@ -13,7 +13,8 @@ class App extends Component {
 
   componentDidMount = () => {
     fetchReservations() 
-      .then(data => this.setState({ reservations: data }))
+      // .then(data => this.setState({ reservations: data }))
+      .then(data => console.log('data', data))
       .catch(() => console.log('Error loading movies'))
   }
 
