@@ -11,6 +11,12 @@ describe('Main Reservation Page', () => {
         .contains('Turing Cafe Reservations')
     })
 
+    it('Should be able to display all reservations when the page is visited', () => {
+        cy 
+        .get('.resCard')
+        .should('have.length', 9)
+    })
+
     it('Should be able to display an input to type a name', () => {
         cy 
         .get('form')
@@ -43,15 +49,19 @@ describe('Main Reservation Page', () => {
         .should('contain', 'Number of People in Group')
     })
 
-    it.only('Should be able to display a button to make a reservation', () => {
+    it('Should be able to display a button to make a reservation', () => {
         cy 
         .get('button')
+        .should('be.visible')
         .contains('Make Reservation')
     })
+
+    it.only('Should be able to type a name in an input field', () => {
+        cy
+          .get('form')
+          .get('input').first()
+          .type('Kev Smith')
+          .should('have.value', 'Kev Smith')
+      })
     
-    it('Should be able to display all reservations when the page is visited', () => {
-        cy 
-        .get('.resCard')
-        .should('have.length', 9)
-    })
 })
