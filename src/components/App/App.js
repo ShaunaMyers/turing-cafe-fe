@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { fetchReservations } from '../../apiCalls';
+import { fetchReservations, updateReservations, deleteReservation } from '../../apiCalls';
 import ResContainer from '../ResContainer/ResContainer';
 import ResForm from '../ResForm/ResForm';
 
@@ -19,7 +19,13 @@ class App extends Component {
   }
 
   handleAddReservation = (reservation) => {
+    const { name, date, time, number } = reservation;
     this.setState({ reservations: [...this.state.reservations, reservation ]})
+    updateReservations({ name: name, date: date, time: time, number: number });
+  }
+
+  handleRemoveReservation = (id) => {
+    deleteReservation(id);
   }
 
   render() {
@@ -29,8 +35,8 @@ class App extends Component {
         <div className='resy-form'>
 
         </div>
-        <ResForm handleAddReservation={this.handleAddReservation}/>
-        <ResContainer className='resy-container' reservations={this.state.reservations}/>
+        <ResForm handleAddReservation={this.handleAddReservation} reservations={this.state.reservations}/>
+        <ResContainer className='resy-container' reservations={this.state.reservations}handleRemoveReservation={this.handleRemoveReservation}/>
       </div>
     )
   }

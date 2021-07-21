@@ -5,7 +5,7 @@ import './ResContainer.css';
 const ResContainer = (props) => {
 
     const allReservations = props.reservations.map(res => {
-        return <Reservation key={res.id} id={res.id} name={res.name} date={res.date} time={res.time} number={res.number}/>
+        return <Reservation key={res.id} id={res.id} name={res.name} date={res.date} time={res.time} number={res.number} handleRemoveReservation={props.handleRemoveReservation}/>
     })
 
     return ( 

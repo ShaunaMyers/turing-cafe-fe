@@ -51,7 +51,7 @@ describe('Main Reservation Page', () => {
 
     it('Should be able to display a button to make a reservation', () => {
         cy 
-        .get('button')
+        .get('.makeRes')
         .should('be.visible')
         .contains('Make Reservation')
     })
@@ -88,7 +88,7 @@ describe('Main Reservation Page', () => {
             .should('have.value', '666')
     })
 
-    it.only('Should be able to add a new reservation to the page', () => {
+    it('Should be able to add a new reservation to the page', () => {
         cy
         .get('form')
         .get('input').first()
@@ -106,7 +106,7 @@ describe('Main Reservation Page', () => {
         .get('input').first().next().next().next()
         .type('45')
 
-        .get('button').click()
+        .get('.makeRes').click()
         .get('.resContainer')
         .contains('Kev Smith')
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './ResForm.css';
 
 class ResForm extends Component {
     constructor(props) {
@@ -7,7 +8,8 @@ class ResForm extends Component {
             name: '',
             date: '',
             time: '',
-            number: ''
+            number: '',
+            error: ''
          }
     }
 
@@ -33,15 +35,22 @@ class ResForm extends Component {
         this.props.handleAddReservation({ id: Math.random(), name: name, date: date, time: time, number: number })
     }
 
+    clearErrorMessage = () => {
+        this.setState({ error: '' })
+    }
+
     render() { 
         return ( 
-            <form className="resForm">
-                <input onChange={this.handleAddName} type="text" placeholder="Your Name" value={this.state.name}/>
-                <input onChange={this.handleAddDate} type="text" placeholder="Date" value={this.state.date}/>
-                <input onChange={this.handleAddTime} type="text" placeholder="Time" value={this.state.time}/>
-                <input onChange={this.handleAddNumber} type="text" placeholder="Number of People in Group" value={this.state.number}/>
-                <button onClick={this.onAddReservation}>Make Reservation</button>
-            </form>
+            <div>
+                <form className="resForm">
+                    <input onChange={this.handleAddName} type="text" placeholder="Your Name" value={this.state.name}/>
+                    <input onChange={this.handleAddDate} type="text" placeholder="Date" value={this.state.date}/>
+                    <input onChange={this.handleAddTime} type="text" placeholder="Time" value={this.state.time}/>
+                    <input onChange={this.handleAddNumber} type="text" placeholder="Number of People in Group" value={this.state.number}/>
+                    <button className="makeRes" onClick={this.onAddReservation}>Make Reservation</button>
+                </form>
+                {this.state.error && <p className="errorMessage">{this.state.error}</p>}
+            </div>
          );
     }
 }
