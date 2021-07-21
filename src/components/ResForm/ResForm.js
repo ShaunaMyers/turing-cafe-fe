@@ -15,6 +15,10 @@ class ResForm extends Component {
         this.setState({ name: e.target.value })
     }
 
+    handleAddDate = (e) => {
+        this.setState({ date: e.target.value })
+    }
+
     render() { 
         return ( 
             <Form>
