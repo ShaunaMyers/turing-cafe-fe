@@ -27,7 +27,8 @@ class ResForm extends Component {
         this.setState({ number: e.target.value })
     }
 
-    onAddReservation = () => {
+    onAddReservation = (e) => {
+        e.preventDefault()
         const { name, date, time, number } = this.state;
         this.props.handleAddReservation({ id: Math.random(), name: name, date: date, time: time, number: number })
     }
