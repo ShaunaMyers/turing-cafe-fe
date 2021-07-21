@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { fetchReservations } from '../../apiCalls';
 
 class App extends Component {
   constructor() {
@@ -7,6 +8,12 @@ class App extends Component {
     this.state = {
       reservations: []
     }
+  }
+
+  componentDidMount = () => {
+    fetchReservations() 
+      .then(data => this.setState({ reservations: data }))
+      .catch(() => console.log('Error loading movies'))
   }
 
   render() {
