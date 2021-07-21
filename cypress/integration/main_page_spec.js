@@ -42,6 +42,12 @@ describe('Main Reservation Page', () => {
         .invoke('attr', 'placeholder')
         .should('contain', 'Number of People in Group')
     })
+
+    it.only('Should be able to display a button to make a reservation', () => {
+        cy 
+        .get('button')
+        .contains('Make Reservation')
+    })
     
     it('Should be able to display all reservations when the page is visited', () => {
         cy 
