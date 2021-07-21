@@ -3,12 +3,12 @@ import Reservation from '../Reservation/Reservation';
 
 const ResContainer = (props) => {
 
-    props.reservations.map(reservation => {
-        return <Reservation />
+    const allReservations = props.reservations.map(res => {
+        return <Reservation key={res.id} id={res.id} name={res.name} date={res.date} time={res.time} number={res.number}/>
     })
 
     return ( 
-        <h2>Hi</h2>
+        <h2>{allReservations}</h2>
      );
 }
  

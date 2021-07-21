@@ -1,8 +1,13 @@
 import React from 'react';
 
-const Reservation = () => {
+const Reservation = ({ id, name, date, time, number }) => {
     return ( 
-        <h3>YO AHOY!</h3>
+        <div>
+            <h2>{name}</h2>
+            <p>{date}</p>
+            <p>{time}</p>
+            <p>{number}</p>
+        </div>
      );
 }
  
