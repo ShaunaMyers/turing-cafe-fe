@@ -78,6 +78,46 @@ describe('Main Reservation Page', () => {
             .get('input').first().next().next()
             .type('12:00')
             .should('have.value', '12:00')
-        })
+    })
+
+    it('Should be able to type the number of people in your group into an input field', () => {
+        cy
+            .get('form')
+            .get('input').first().next().next().next()
+            .type('666')
+            .should('have.value', '666')
+    })
+
+    it.only('Should be able to add a new reservation to the page', () => {
+        cy
+        .get('form')
+        .get('input').first()
+        .type('Kev Smith')
+
+        .get('form')
+        .get('input').first().next()
+        .type('07/29')
+
+        .get('form')
+        .get('input').first().next().next()
+        .type('12:00')
+
+        .get('form')
+        .get('input').first().next().next().next()
+        .type('45')
+
+        .get('button').click()
+        .get('.resContainer')
+        .contains('Kev Smith')
+
+        .get('.resContainer')
+        .contains('07/29')
+
+        .get('.resContainer')
+        .contains('12:00')
+
+        .get('.resContainer')
+        .contains('45')
+    })
     
 })
