@@ -27,6 +27,22 @@ describe('Main Reservation Page', () => {
         .should('contain', 'Date')
     })
 
+    it('Should be able to display an input to type a time', () => {
+        cy 
+        .get('form')
+        .get('input').next().next()
+        .invoke('attr', 'placeholder')
+        .should('contain', 'Time')
+    })
+
+    it('Should be able to display an input to type the number of people in your group', () => {
+        cy 
+        .get('form')
+        .get('input').next().next().next()
+        .invoke('attr', 'placeholder')
+        .should('contain', 'Number of People in Group')
+    })
+    
     it('Should be able to display all reservations when the page is visited', () => {
         cy 
         .get('.resCard')
