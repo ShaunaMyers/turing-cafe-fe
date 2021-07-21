@@ -64,12 +64,20 @@ describe('Main Reservation Page', () => {
           .should('have.value', 'Kev Smith')
       })
 
-      it('Should be able to type a date in an input field', () => {
+    it('Should be able to type a date in an input field', () => {
+    cy
+        .get('form')
+        .get('input').first().next()
+        .type('07/29')
+        .should('have.value', '07/29')
+    })
+
+    it('Should be able to type a time in an input field', () => {
         cy
-          .get('form')
-          .get('input').first().next()
-          .type('07/29')
-          .should('have.value', '07/29')
-      })
+            .get('form')
+            .get('input').first().next().next()
+            .type('12:00')
+            .should('have.value', '12:00')
+        })
     
 })
