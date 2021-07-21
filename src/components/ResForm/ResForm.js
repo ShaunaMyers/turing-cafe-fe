@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 
 class ResForm extends Component {
     constructor() {
@@ -11,7 +11,15 @@ class ResForm extends Component {
          }
     }
     render() { 
-        return (  );
+        return ( 
+            <Form>
+                <input onChange={handleAddName}/>
+                <input onChange={handleAddDate}/>
+                <input onChange={handleAddTime}/>
+                <input onChange={handleAddNumber}/>
+                <button>Make Reservation</button>
+            </Form>
+         );
     }
 }
  
